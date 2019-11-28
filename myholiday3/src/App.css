@@ -1,0 +1,173 @@
+* {
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  background-color: #ececec;
+}
+
+h1 {
+  color: blue;
+  text-align: center;
+}
+
+header{
+  background-color: #1285ce;
+  display: flex;
+  align-items: center;
+}
+/*
+https://coolors.co/27bc10-1285ce-eea01a-ff302c-a80874
+*/
+header a{
+  color: #eea01a;
+  text-decoration:  none;
+  padding: 20px;
+  display: block;
+}
+
+header ul {
+  list-style-type: none;
+}
+
+#logo{
+  text-align: center;
+  font-size: 2em;
+  margin: 0 auto;
+  font-family: 'Kaushan Script', sans-serif;
+}
+
+#social-links ul{
+  display: flex;
+}
+
+#main-links ul{
+  display: flex;
+}
+
+#social-links ul{
+  display: flex;
+}
+
+#dataBar {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  box-shadow: 7px 5px 10px -3px rgba(0,0,0,0.5);
+  background-color: #eea01a;
+  width: 30%;
+  align-items: center;
+  text-align: center;
+}
+
+#dataBarTitleContainer {
+  padding: 5px;
+  font-size: 1.6em;
+}
+
+#dataBar input {
+  border: 2px solid transparent;
+  padding: 5px;
+  margin: 5px;
+}
+
+#dataBar input:focus {
+  border: 2px solid #1285ce;
+}
+
+.dataEntry {
+  margin: 10px 0px;
+  font-size: 1.5em;
+}
+
+#allContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 15%;
+  width: 70%;
+}
+
+#chooseContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px;
+  width: 100%;
+  padding: 5px;
+  box-shadow: 7px 5px 10px -3px rgba(0,0,0,0.5);
+  background-color: #a80874;
+  justify-content: center;
+  align-items: center;
+}
+
+#activitiesSelectContainer, #areaSelectContainer, #climateSelectContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#activitiesContainer, #areaContainer, #climateContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#chooseContainer h2{
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+#dataBar h2{
+  text-align: center;
+}
+
+img {
+  max-width: 170px;
+  max-height: 170px;
+}
+
+.selectable {
+  margin: 0px 5px;
+  padding: 5px;
+  text-align: center;
+  border: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.selectable:hover {
+  transform: scale(1.05);
+}
+
+#calculateContainr {
+  align-items: center;
+  justify-content: center;
+}
+
+#calculateButton {
+  padding: 10px;
+  margin: 5px;
+  background-color: #1F7D1F;
+  border: 3px solid transparent;
+  color: #ececec;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+#calculateButton:hover {
+  border: 3px solid #1F7D1F; 
+  color: #1F7D1F;
+  background-color: #ececec;
+  overflow: hidden;
+}
+
+.chooseClicked {
+  border: 3px solid #1F7D1F;
+  padding: 5px;
+}
+
+#resultsContainer {
+  width: 100%;
+}
