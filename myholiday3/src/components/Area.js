@@ -1,22 +1,34 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 
 
 class Area extends React.Component {
+    number = this.props.number;
     img = this.props.img;
     title = this.props.title;
     idName = this.props.idName;
     clicked = false;
 
+    areaActivate = (choosenArea, deactivateArea) => {
+      console.log('choosenArea: ' + choosenArea + ' idname: ' + this.idName + ' title: ' + this.title);
+      var element = document.getElementById(this.idName);
+      if(choosenArea == this.idName) {
+          if(!this.clicked){
+              element.classList.add('chooseClicked');
+              this.clicked = true;
+          } else {
+              element.classList.remove('chooseClicked')
+              this.clicked = false;
+          }
+      }
+      if(deactivateArea == this.idName) {
+        element.classList.remove('chooseClicked')
+        this.clicked = false;
+      }
+    }
+
     clickArea =  (e) => {
-        var element = document.getElementById(this.idName);
-        if(!this.clicked){
-          this.clicked = true;
-          element.classList.add('chooseClicked');
-       } else {
-         this.clicked = false;
-         element.classList.remove('chooseClicked')
-       }
-       this.props.areaClicked(this.idName);
+       this.props.areaClicked(this.idName, this.number);
       }
 
     render() {

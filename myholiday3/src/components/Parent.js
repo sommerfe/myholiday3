@@ -8,11 +8,12 @@ import '../App.css';
 class Parent extends React.Component {
     
     activities = [];
-    area;
+    area = [];
     climate;
     constructor(props) {
         super(props);
         this.climateRef = [];
+        this.areaRef = [];
     }
 
     //componentDidMount() {
@@ -43,7 +44,17 @@ class Parent extends React.Component {
     }
 
     areaClicked = (idName) => {
-        this.area = idName
+        if(this.area.includes(idName)){
+            this.area.splice( this.area.indexOf(idName), 1 );
+            this.areaRef.map((ref) => ref.areaActivate(null, idName))
+        }else {
+            let deactivateArea = this.area[1];
+            this.area[1] = this.area[0];
+            this.area[0] = idName
+            this.areaRef.map((ref) => ref.areaActivate(this.area[0], deactivateArea))
+        }
+
+
         console.log('Area: ' + this.area);
 
     }
@@ -51,8 +62,15 @@ class Parent extends React.Component {
     climateClicked = (idName, index) => {
         this.climate = idName
         this.climateRef.map((ref) => ref.climateActivate(this.climate))
-        //this.climateRef[index].climateActivate(this.climate);
         console.log('Climate: ' + this.climate);
+    }
+
+    calculate = () => {
+        console.log('Calculation:')
+        console.log('Activities: ' + this.activities)
+        console.log('Area: ' + this.area)
+        console.log('Climate: ' + this.climate)
+
     }
 
     render() {
@@ -126,10 +144,10 @@ class Parent extends React.Component {
                 </div>
                 <div id="areaSelectContainer">
 
-                    <Area title={"Ocean"} img={img0} idName={"oceanContainer"} areaClicked={this.areaClicked}/>
-                    <Area title={"Mountain"} img={img0} idName={"mountainContainer"} areaClicked={this.areaClicked}/>
-                    <Area title={"Lake"} img={img0} idName={"lakeContainer"} areaClicked={this.areaClicked}/>
-                    <Area title={"Inland"} img={img0} idName={"inlandContainer"} areaClicked={this.areaClicked}/>
+                    <Area number='0' title={"Ocean"} img={img0} idName={"oceanContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[0] = ref}/>
+                    <Area number='1' title={"Mountain"} img={img0} idName={"mountainContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[1] = ref}/>
+                    <Area number='2' title={"Lake"} img={img0} idName={"lakeContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[2] = ref}/>
+                    <Area number='3' title={"Inland"} img={img0} idName={"inlandContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[3] = ref}/>
 
                 </div>
             </div>
@@ -146,7 +164,7 @@ class Parent extends React.Component {
                 </div>
             </div>
             <div id="calculateContainer">
-                <button id="calculateButton">CALCULATE</button>
+                <button id="calculateButton" onClick={this.calculate}>CALCULATE</button>
             </div>
         </div>
     </div>;
