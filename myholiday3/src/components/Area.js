@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-class Activity extends React.Component {
+class Area extends React.Component {
     img = this.props.img;
     title = this.props.title;
     idName = this.props.idName;
     clicked = false;
 
-    clickActivity =  (e) => {
+    clickArea =  (e) => {
         var element = document.getElementById(this.idName);
         if(!this.clicked){
           this.clicked = true;
@@ -16,12 +16,12 @@ class Activity extends React.Component {
          this.clicked = false;
          element.classList.remove('chooseClicked')
        }
-       this.props.activityClicked(this.idName);
+       this.props.areaClicked(this.idName);
       }
 
     render() {
         return( 
-        <div  id={this.idName} className="selectable" onClick={this.clickActivity}>
+        <div  id={this.idName} className="selectable" onClick={this.clickArea}>
             <img src={this.img} alt=""/>
             <h4>{this.title}</h4>
         </div>
@@ -29,4 +29,4 @@ class Activity extends React.Component {
     }
 }
 
-export default Activity;
+export default Area;
