@@ -4,16 +4,20 @@ import Activity from './Activity';
 import Climate from './Climate';
 import Area from './Area';
 import '../App.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class Parent extends React.Component {
-    
     activities = [];
     area = [];
     climate;
+
     constructor(props) {
         super(props);
         this.climateRef = [];
         this.areaRef = [];
+        this.state = {fromDate: new Date(), toDate: new Date()}
+
     }
 
     //componentDidMount() {
@@ -32,7 +36,7 @@ class Parent extends React.Component {
 
       scriptLoaded() {
         //window.A.sort();
-      }
+      };
 
     activityClicked = (idName) => {
         if(this.activities.includes(idName)){
@@ -41,7 +45,7 @@ class Parent extends React.Component {
             this.activities.push(idName);
         }
         console.log('Activities: ' + this.activities);
-    }
+    };
 
     areaClicked = (idName) => {
         if(this.area.includes(idName)){
@@ -57,13 +61,13 @@ class Parent extends React.Component {
 
         console.log('Area: ' + this.area);
 
-    }
+    };
 
     climateClicked = (idName, index) => {
         this.climate = idName
         this.climateRef.map((ref) => ref.climateActivate(this.climate))
         console.log('Climate: ' + this.climate);
-    }
+    };
 
     calculate = () => {
         console.log('Calculation:')
@@ -71,10 +75,17 @@ class Parent extends React.Component {
         console.log('Area: ' + this.area)
         console.log('Climate: ' + this.climate)
 
+    };
+
+    fromDateChanged = (newDate) => {
+        this.setState({fromDate: newDate})    
+    }
+
+    toDateChanged = (newDate) => {
+        this.setState({toDate: newDate})
     }
 
     render() {
-        
         const navigationBar = <header>
         <nav id="main-links">
                 <ul>
@@ -115,9 +126,9 @@ class Parent extends React.Component {
             </div>
             <div id="timeSpanContainer" className="dataEntry">
                 <h4>From</h4>
-               <input />
+                <DatePicker selected={this.state.fromDate} onChange={this.fromDateChanged} dateFormat="EE dd-MM-yyyy"/>
                 <h4>To</h4>
-                <input/>
+                <DatePicker selected={this.state.toDate} onChange={this.toDateChanged} dateFormat="EE dd-MM-yyyy"/>
             </div>
             <div id="distanceContainer" className="dataEntry">
                 <h4>Distance</h4>
