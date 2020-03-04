@@ -23,7 +23,7 @@ header{
 https://coolors.co/27bc10-1285ce-eea01a-ff302c-a80874
 */
 header a{
-  color: #eea01a;
+  color:   #f39c12   ;
   text-decoration:  none;
   padding: 20px;
   display: block;
@@ -57,7 +57,7 @@ header ul {
   flex-direction: column;
   padding: 15px;
   box-shadow: 7px 5px 10px -3px rgba(0,0,0,0.5);
-  background-color: #eea01a;
+  background-color:  #f39c12   ;
   width: 30%;
   align-items: center;
   text-align: center;
@@ -97,7 +97,7 @@ header ul {
   width: 100%;
   padding: 5px;
   box-shadow: 7px 5px 10px -3px rgba(0,0,0,0.5);
-  background-color: #a80874;
+  background-color:  #884ea0  ;
   justify-content: center;
   align-items: center;
 }
@@ -125,8 +125,8 @@ header ul {
 }
 
 img {
-  max-width: 170px;
-  max-height: 170px;
+  width: 170px;
+  height: 120px;
 }
 
 .selectable {
@@ -149,7 +149,7 @@ img {
 #calculateButton {
   padding: 10px;
   margin: 5px;
-  background-color: #1F7D1F;
+  background-color: #2e4053;
   border: 3px solid transparent;
   color: #ececec;
   border-radius: 5px;
@@ -157,17 +157,35 @@ img {
 }
 
 #calculateButton:hover {
-  border: 3px solid #1F7D1F; 
-  color: #1F7D1F;
+  border: 3px solid #2e4053; 
+  color: #2e4053;
   background-color: #ececec;
   overflow: hidden;
 }
 
 .chooseClicked {
-  border: 3px solid #1F7D1F;
+  border: 3px solid #2e4053;
   padding: 5px;
 }
 
 #resultsContainer {
   width: 100%;
+}
+
+.tripOfferContainer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tripOffer{
+  border: 3px solid #2e4053;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  margin: 3px;
+  text-align: center;
+  justify-content: flex-start;
+  max-width: 500px;
+  text-align: center;
 }
