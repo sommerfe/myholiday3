@@ -19,6 +19,7 @@ import Area from './Area';
 import '../App.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import SuggestedLocations from './SuggestedLocations';
 
 class Parent extends React.Component {
     activities = [];
@@ -29,7 +30,7 @@ class Parent extends React.Component {
         super(props);
         this.climateRef = [];
         this.areaRef = [];
-        this.state = {fromDate: new Date(), toDate: new Date(), offerList: []}
+        this.state = {fromDate: new Date(), toDate: new Date(), offerList: [], possibleLocations: []}
 
     }
 
@@ -88,8 +89,42 @@ class Parent extends React.Component {
         console.log('Activities: ' + this.activities)
         console.log('Area: ' + this.area)
         console.log('Climate: ' + this.climate)
+        let locations = [];
+        switch(this.climate){
+            case "tropicalConatiner":  locations.push('Mexico'); break;
+            case "hotContainer": locations.push('Mallorca'); break;
+            case "temperateContainer": locations.push('Freiburg'); break;
+            case "coldContainer": locations.push('St. Moritz'); break;
+            default: break;
+        }
 
+        console.log("calculate: " + this.state.possibleLocations)
+
+        this.area.forEach((a) => {
+            switch(a){
+                case "oceanContainer": locations.push('Teneriffa'); break;
+                case "mountainContainer": locations.push('Mt Blanc'); break;
+                case "lakeContainer": locations.push('Inverness'); break;
+                case "inlandContainer": locations.push('Munich'); break;
+                default: break;
+            }
+        })
+        console.log("calculate: " + this.state.possibleLocations)
+
+        this.activities.forEach((a) => {
+            switch(a){
+                case "relaxContainer": locations.push('Antalya'); break;
+                case "adventureContainer": locations.push('Saint Raphael'); break;
+                case "natureContainer": locations.push('Krka'); break;
+                case "sightseeingContainer": locations.push('London'); break;
+                default: break;
+            }
+        })
+        
+        this.setState({possibleLocations: locations});
+        console.log("calculate: " + this.state.possibleLocations)
     };
+
 
     fromDateChanged = (newDate) => {
         this.setState({fromDate: newDate})    
@@ -106,6 +141,14 @@ class Parent extends React.Component {
            offers.push(<TripOffer id={"offer" +i} offer={offer} key={i}></TripOffer>)
         });
         return offers;
+    }
+
+    calculatedLocations = () => {
+        if(this.state.possibleLocations && this.state.possibleLocations.length > 0){
+            let html =<div className="calculatedLocationsContainer"><SuggestedLocations locations={this.state.possibleLocations}></SuggestedLocations></div>
+            return html;
+        }
+        return null;
     }
 
     render() {
@@ -128,8 +171,6 @@ class Parent extends React.Component {
                 </ul>
             </nav>
         </header>;
-
-
 
 
         const allContainer =        
@@ -180,12 +221,10 @@ class Parent extends React.Component {
                     <h2>Area</h2>
                 </div>
                 <div id="areaSelectContainer">
-
                     <Area number='0' title={"Ocean"} img={ocean} idName={"oceanContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[0] = ref}/>
                     <Area number='1' title={"Mountain"} img={mountain} idName={"mountainContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[1] = ref}/>
                     <Area number='2' title={"Lake"} img={lake} idName={"lakeContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[2] = ref}/>
                     <Area number='3' title={"Inland"} img={inland} idName={"inlandContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[3] = ref}/>
-
                 </div>
             </div>
             <hr/>
@@ -208,9 +247,10 @@ class Parent extends React.Component {
         return (<div id="all">
                 {navigationBar}
                 {allContainer}
-                <div class="tripOfferContainer">
-                    {this.createOffers()}
-                </div>
+                {this.calculatedLocations()}
+                    <div className="tripOfferContainer">
+                        {this.createOffers()}
+                    </div>
                 </div>
                 );
     }

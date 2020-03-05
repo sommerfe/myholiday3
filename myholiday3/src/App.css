@@ -168,6 +168,44 @@ img {
   padding: 5px;
 }
 
+.calculatedLocationsContainer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.calculatedLocations{
+  align-items: center;
+  box-sizing: border-box;
+  width: 50%;
+  background-color: #1285ce;
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.calculatedLocations button{
+  text-align: center;
+  align-items: center;
+  background-color: #f39c12;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+.calculatedLocations button:hover{
+background-color: #2e4053;
+  color: #f39c12;
+  transition: 0.3s;
+}
+
+.calculatedLocations p {
+  font-size: 2em;
+}
+
 #resultsContainer {
   width: 100%;
 }
@@ -187,5 +225,4 @@ img {
   text-align: center;
   justify-content: flex-start;
   max-width: 500px;
-  text-align: center;
 }
