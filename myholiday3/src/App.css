@@ -14,6 +14,10 @@ h1 {
   text-align: center;
 }
 
+#chooseContainer h1 {
+  color: #ececec ;
+}
+
 header{
   background-color: #1285ce;
   display: flex;
@@ -57,7 +61,7 @@ header ul {
   flex-direction: column;
   padding: 15px;
   box-shadow: 7px 5px 10px -3px rgba(0,0,0,0.5);
-  background-color:  #f39c12   ;
+  background-color:  #f39c12;
   width: 30%;
   align-items: center;
   text-align: center;
@@ -72,6 +76,7 @@ header ul {
   border: 2px solid transparent;
   padding: 5px;
   margin: 5px;
+  background-color: #ececec;
 }
 
 #dataBar input:focus {
@@ -197,7 +202,7 @@ img {
 }
 
 .calculatedLocations button:hover{
-background-color: #2e4053;
+  background-color: #2e4053;
   color: #f39c12;
   transition: 0.3s;
 }
@@ -225,4 +230,41 @@ background-color: #2e4053;
   text-align: center;
   justify-content: flex-start;
   max-width: 500px;
+}
+
+#distanceContainer label{
+  font-size: 0.75em;
+  cursor: pointer;
+  padding: 5px;
+}
+
+
+.radioDistanceContainer{
+  text-align: center;
+  margin: 5px;
+}
+
+.bottomBar {
+  background-color: #2e4053;
+  overflow: hidden;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Style the links inside the navigation bar */
+.bottomBar a {
+  color: #ececec;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.bottomBar a:hover {
+  background-color: #ececec;
+  color: #2e4053;
 }

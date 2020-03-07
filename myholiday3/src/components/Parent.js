@@ -20,6 +20,7 @@ import '../App.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import SuggestedLocations from './SuggestedLocations';
+import Impressum from './Impressum';
 
 class Parent extends React.Component {
     activities = [];
@@ -198,12 +199,24 @@ class Parent extends React.Component {
                 <DatePicker selected={this.state.toDate} onChange={this.toDateChanged} dateFormat="EE dd-MM-yyyy"/>
             </div>
             <div id="distanceContainer" className="dataEntry">
-                <h4>Distance</h4>
-                <input  id="distance" placeholder="In Kilometers (optional)"/>
+                <h4>Distance from Start City</h4>
+                <div className="radioDistanceContainer">
+                <input type="radio" id="short" name="distance" value="short"></input>
+                <label htmlFor="short">Short Distance</label><br></br>
+                </div>
+                <div className="radioDistanceContainer">
+                <input type="radio" id="medium" name="distance" value="medium"></input>
+                <label htmlFor="medium">Medium Distance</label><br></br>
+                </div>
+                <div className="radioDistanceContainer">
+                <input type="radio" id="any" name="distance" value="any"></input>
+                <label htmlFor="any">Any Distance</label>
+                </div>
             </div>
         </div>
     
         <div id="chooseContainer">
+            <h1>Components of my dream Holiday</h1>
             <div id="activitiesContainer">
                 <div id="activitiesTitleContainer">
                     <h2>Activities</h2>
@@ -251,6 +264,8 @@ class Parent extends React.Component {
                     <div className="tripOfferContainer">
                         {this.createOffers()}
                     </div>
+                <Impressum></Impressum>
+
                 </div>
                 );
     }
