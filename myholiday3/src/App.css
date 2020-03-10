@@ -179,8 +179,15 @@ img {
   flex-direction: column;
 }
 
+.optionContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .calculatedLocations{
   align-items: center;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   width: 50%;
   background-color: #1285ce;
@@ -190,6 +197,9 @@ img {
   padding: 10px;
 }
 
+.calculatedLocations p {
+  padding: 10px;
+}
 .calculatedLocations button{
   text-align: center;
   align-items: center;
@@ -268,3 +278,27 @@ img {
   background-color: #ececec;
   color: #2e4053;
 }
+
+.linkContainer{
+  display: block;
+}
+
+.linkContainer:hover{
+  cursor: pointer;
+}
+
+.option{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.calculatedLocations a{
+  text-decoration: none;
+  color: black;
+}
+
+.option h3{
+  margin-top: 5px;
+}
+

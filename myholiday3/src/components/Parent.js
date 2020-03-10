@@ -26,12 +26,11 @@ class Parent extends React.Component {
     activities = [];
     area = [];
     climate;
-
     constructor(props) {
         super(props);
         this.climateRef = [];
         this.areaRef = [];
-        this.state = {fromDate: new Date(), toDate: new Date(), offerList: [], possibleLocations: []}
+        this.state = {fromDate: new Date(), toDate: new Date().setDate((new Date()).getDate() + 7) , offerList: [], possibleLocations: []}
 
     }
 
