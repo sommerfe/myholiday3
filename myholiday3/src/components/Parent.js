@@ -187,17 +187,17 @@ class Parent extends React.Component {
                 <h4>Guests</h4>
                 <input type="number" min="1" max="12" id="guestsInput" placeholder="2"/>
             </div>
-            <div id="costContainer" className="dataEntry">
+           {/* <div id="costContainer" className="dataEntry">
                 <h4>Maximal Cost</h4>
                 <input type="number" min="0" id="costInput" placeholder="1000"/>
-            </div>
+                </div> */}
             <div id="timeSpanContainer" className="dataEntry">
                 <h4>From</h4>
                 <DatePicker selected={this.state.fromDate} onChange={this.fromDateChanged} dateFormat="EE dd-MM-yyyy"/>
                 <h4>To</h4>
                 <DatePicker selected={this.state.toDate} onChange={this.toDateChanged} dateFormat="EE dd-MM-yyyy"/>
             </div>
-            <div id="distanceContainer" className="dataEntry">
+            {/*<div id="distanceContainer" className="dataEntry">
                 <h4>Distance from Start City</h4>
                 <div className="radioDistanceContainer">
                 <input type="radio" id="short" name="distance" value="short"></input>
@@ -211,7 +211,7 @@ class Parent extends React.Component {
                 <input type="radio" id="any" name="distance" value="any"></input>
                 <label htmlFor="any">Any Distance</label>
                 </div>
-            </div>
+            </div>*/}
         </div>
     
         <div id="chooseContainer">
