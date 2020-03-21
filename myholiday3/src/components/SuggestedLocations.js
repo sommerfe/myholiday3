@@ -2,51 +2,52 @@
 import React from 'react';
 import {data} from '../data'
 
-function SuggestedLocations(props) {
-    let locations = props.locations;
-    console.log(data[0])
-    let a = selectLocations(locations, data)
-    //let b = require(a[2].image)
-    let b = require('../assets/adventure.jpg')
+class SuggestedLocations extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = { selectedLocations: this.selectLocations(this.props.locations, data) }
+    }
 
-    console.log(a[2].image)
-
-    function selectLocations(locations, da){
+    onLoad(feedItem){
+        let updatedItems = this.state.selectedLocations;
+        updatedItems.push({
+            city: feedItem.city,
+            country: feedItem.country,
+            image: feedItem.image
+        })
+        this.setState({selectLocations: updatedItems})
+    }
+    selectLocations(locations, da){
         let array = [];
 
         locations.forEach((l) => {
-            array.push(da.find((d) => d.name === l))
+            array.push(da.find((d) => d.city === l))
         })
         console.log(array)
+        array = array.slice(0, 3)
         return array;
     }
 //{require(a[0].image)}
+    render(){
     return (
         <div className="calculatedLocations">
             
             <p>Possible Locations</p>
             <div className="optionContainer">
+            {
+            this.state.selectedLocations.map((item, i) =>
                 <a className="linkContainer" href="https://booking.com">
-                    <div id="option1" className="option">
-                        <img src={require( `${ a[0].image}` )} alt="option"></img>
-                        <h3>{a[0].name}</h3>
-                    </div>
-                </a>
-                <a className="linkContainer" href="https://booking.com">
-                    <div id="option2" className="option">
-                        <img src={require( `${ a[1].image}` )} alt="option"></img>
-                        <h3>{a[1].name}</h3>
-                    </div>
-                </a>
-                <a className="linkContainer" href="https://booking.com">
-                    <div id="option3" className="option">
-                        <img src={require( `${ a[2].image}` )}  alt="option"></img>
-                        <h3>{a[2].name}</h3>
-                    </div>
-                </a>
+                <div id={"option" + i} className="option">
+                    <img src={item.image} alt="option"></img>
+                    <h3>{item.city}</h3> 
+                    <h4>{item.country}</h4> 
+                </div>
+            </a>
+            )}
         </div>
     </div>
     )
   }
+}
 
 export default SuggestedLocations;

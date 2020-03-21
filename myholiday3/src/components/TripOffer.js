@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
 import React from 'react';
-import ocean from '../assets/ocean.jpg';
+import ocean from '../assets/categories/ocean2.jpg';
 
 
 class TripOffer extends React.Component {

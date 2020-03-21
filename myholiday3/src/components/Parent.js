@@ -1,16 +1,16 @@
 import React from 'react';
-import mountain from '../assets/mountain2.jpg';
-import relax from '../assets/relax2.jpg';
-import adventure from '../assets/adventure2.jpg';
-import cold from '../assets/cold2.jpg';
-import hot from '../assets/hot2.jpg';
-import inland from '../assets/inland2.jpg';
-import lake from '../assets/lake2.jpg';
-import nature from '../assets/nature2.jpg';
-import ocean from '../assets/ocean2.jpg';
-import sightseeing from '../assets/sightseeing2.jpg';
-import temperate from '../assets/temperate2.jpg';
-import tropical from '../assets/tropical2.jpg';
+import mountain from '../assets/categories/mountain2.jpg';
+import relax from '../assets/categories/relax2.jpg';
+import adventure from '../assets/categories/adventure2.jpg';
+import cold from '../assets/categories/cold2.jpg';
+import hot from '../assets/categories/hot2.jpg';
+import inland from '../assets/categories/inland2.jpg';
+import lake from '../assets/categories/lake2.jpg';
+import nature from '../assets/categories/nature2.jpg';
+import ocean from '../assets/categories/ocean2.jpg';
+import sightseeing from '../assets/categories/sightseeing2.jpg';
+import temperate from '../assets/categories/temperate2.jpg';
+import tropical from '../assets/categories/tropical2.jpg';
 
 import Activity from './Activity';
 import Climate from './Climate';
@@ -91,7 +91,7 @@ class Parent extends React.Component {
         console.log('Climate: ' + this.climate)
         let locations = [];
         switch(this.climate){
-            case "tropicalConatiner":  locations.push('Mexico'); break;
+            case "tropicalConatiner":  locations.push('Tuxtla Gutiérrez'); break;
             case "hotContainer": locations.push('Mallorca'); break;
             case "temperateContainer": locations.push('Freiburg'); break;
             case "coldContainer": locations.push('St. Moritz'); break;
@@ -103,7 +103,7 @@ class Parent extends React.Component {
         this.area.forEach((a) => {
             switch(a){
                 case "oceanContainer": locations.push('Teneriffa'); break;
-                case "mountainContainer": locations.push('Mt Blanc'); break;
+                case "mountainContainer": locations.push('Annecy'); break;
                 case "lakeContainer": locations.push('Inverness'); break;
                 case "inlandContainer": locations.push('Munich'); break;
                 default: break;
@@ -144,6 +144,7 @@ class Parent extends React.Component {
     }
 
     calculatedLocations = () => {
+        console.log('calculatedLocations')
         if(this.state.possibleLocations && this.state.possibleLocations.length > 0){
             let html =<div className="calculatedLocationsContainer"><SuggestedLocations locations={this.state.possibleLocations}></SuggestedLocations></div>
             return html;
