@@ -19,7 +19,7 @@ h1 {
 }
 
 header{
-  background-color: #1285ce;
+  background-color: #007be3;
   display: flex;
   align-items: center;
 }
@@ -27,7 +27,7 @@ header{
 https://coolors.co/27bc10-1285ce-eea01a-ff302c-a80874
 */
 header a{
-  color:   #f39c12   ;
+  color:   #e78200   ;
   text-decoration:  none;
   padding: 20px;
   display: block;
@@ -61,7 +61,7 @@ header ul {
   flex-direction: column;
   padding: 15px;
   box-shadow: 7px 5px 10px -3px rgba(0,0,0,0.5);
-  background-color:  #f39c12;
+  background-color:  #083b66;
   width: 30%;
   align-items: center;
   text-align: center;
@@ -80,7 +80,7 @@ header ul {
 }
 
 #dataBar input:focus {
-  border: 2px solid #1285ce;
+  border: 2px solid #083b66;
 }
 
 .dataEntry {
@@ -102,7 +102,7 @@ header ul {
   width: 100%;
   padding: 5px;
   box-shadow: 7px 5px 10px -3px rgba(0,0,0,0.5);
-  background-color:  #884ea0  ;
+  background-color:  #71bbf9  ;
   justify-content: center;
   align-items: center;
 }
@@ -154,7 +154,7 @@ img {
 #calculateButton {
   padding: 10px;
   margin: 5px;
-  background-color: #2e4053;
+  background-color: #e78200;
   border: 3px solid transparent;
   color: #ececec;
   border-radius: 5px;
@@ -162,14 +162,14 @@ img {
 }
 
 #calculateButton:hover {
-  border: 3px solid #2e4053; 
-  color: #2e4053;
+  border: 3px solid #e78200; 
+  color: #e78200;
   background-color: #ececec;
   overflow: hidden;
 }
 
 .chooseClicked {
-  border: 3px solid #2e4053;
+  border: 3px solid #e78200;
   padding: 5px;
 }
 
@@ -190,7 +190,8 @@ img {
   flex-direction: column;
   box-sizing: border-box;
   width: 50%;
-  background-color: #1285ce;
+  background-color: #083b66
+  ;
   padding: 5px;
   justify-content: center;
   text-align: center;
@@ -212,7 +213,6 @@ img {
 }
 
 .calculatedLocations button:hover{
-  background-color: #2e4053;
   color: #f39c12;
   transition: 0.3s;
 }
@@ -225,22 +225,6 @@ img {
   width: 100%;
 }
 
-.tripOfferContainer{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.tripOffer{
-  border: 3px solid #2e4053;
-  display: flex;
-  flex-direction: row;
-  padding: 5px;
-  margin: 3px;
-  text-align: center;
-  justify-content: flex-start;
-  max-width: 500px;
-}
 
 #distanceContainer label{
   font-size: 0.75em;
@@ -255,7 +239,7 @@ img {
 }
 
 .bottomBar {
-  background-color: #2e4053;
+  background-color: #007be3;
   overflow: hidden;
   position: relative;
   bottom: 0;
@@ -276,7 +260,8 @@ img {
 /* Change the color of links on hover */
 .bottomBar a:hover {
   background-color: #ececec;
-  color: #2e4053;
+  color: #007be3
+  ;
 }
 
 .linkContainer{
@@ -300,4 +285,9 @@ img {
 
 .option h3{
   margin-top: 5px;
+}
+
+#logo img {
+  height: 25%;
+  width: 25%;
 }
