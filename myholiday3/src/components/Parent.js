@@ -156,11 +156,11 @@ class Parent extends React.Component {
     render() {
         const navigationBar = <header>
         <nav id="main-links">
-                <ul>
+                {/*<ul>
                     <li><a href="google.com">Home</a></li>
                     <li><a href="google.com">Contact</a></li>
                     <li><a href="google.com">About</a></li>
-                </ul>
+                </ul>*/}
             </nav>
             <div id="logo">
                 <a href="/#">
@@ -168,11 +168,11 @@ class Parent extends React.Component {
                 </a>
             </div>
             <nav id="social-links">
-                <ul>
+                {/*<ul>
                     <li><a href="/"><i className="fa fa-facebook" aria-hidden="true"></i>Facebook</a></li>
                     <li><a href="google.com"><i className="fa fa-twitter" aria-hidden="true"></i>Twitter</a></li>
                     <li><a href="google.com"><i className="fa fa-instagram" aria-hidden="true"></i>Instagram</a></li>
-                </ul>
+                </ul>*/}
             </nav>
         </header>;
 
