@@ -92,10 +92,10 @@ class Parent extends React.Component {
         console.log('Climate: ' + this.climate)
         let locations = [];
         switch(this.climate){
-            case "tropicalConatiner":  locations.push('Tuxtla Gutiérrez'); break;
-            case "hotContainer": locations.push('Mallorca'); break;
-            case "temperateContainer": locations.push('Freiburg'); break;
-            case "coldContainer": locations.push('St. Moritz'); break;
+            case "tropical":  locations.push('Tuxtla Gutiérrez'); break;
+            case "hot": locations.push('Mallorca'); break;
+            case "temperate": locations.push('Freiburg'); break;
+            case "cold": locations.push('St. Moritz'); break;
             default: break;
         }
 
@@ -103,10 +103,10 @@ class Parent extends React.Component {
 
         this.area.forEach((a) => {
             switch(a){
-                case "oceanContainer": locations.push('Teneriffa'); break;
-                case "mountainContainer": locations.push('Annecy'); break;
-                case "lakeContainer": locations.push('Inverness'); break;
-                case "inlandContainer": locations.push('Munich'); break;
+                case "ocean": locations.push('Teneriffa'); break;
+                case "mountain": locations.push('Annecy'); break;
+                case "lake": locations.push('Inverness'); break;
+                case "inland": locations.push('Munich'); break;
                 default: break;
             }
         })
@@ -114,10 +114,10 @@ class Parent extends React.Component {
 
         this.activities.forEach((a) => {
             switch(a){
-                case "relaxContainer": locations.push('Antalya'); break;
-                case "adventureContainer": locations.push('Saint Raphael'); break;
-                case "natureContainer": locations.push('Krka'); break;
-                case "sightseeingContainer": locations.push('London'); break;
+                case "relax": locations.push('Antalya'); break;
+                case "adventure": locations.push('Saint Raphael'); break;
+                case "nature": locations.push('Krka'); break;
+                case "sightseeing": locations.push('London'); break;
                 default: break;
             }
         })
@@ -225,10 +225,10 @@ class Parent extends React.Component {
                     <h2>Activities</h2>
                 </div>
                 <div id="activitiesSelectContainer">
-                    <Activity title={"Relax"} img={relax} idName={"relaxContainer"} activityClicked={this.activityClicked}/>
-                    <Activity title={"Adventure"} img={adventure} idName={"adventureContainer"} activityClicked={this.activityClicked}/>
-                    <Activity title={"Nature"} img={nature} idName={"natureContainer"} activityClicked={this.activityClicked}/>
-                    <Activity title={"Sightseeing"} img={sightseeing} idName={"sightseeingContainer"} activityClicked={this.activityClicked}/>
+                    <Activity title={"Relax"} img={relax} idName={"relax"} activityClicked={this.activityClicked}/>
+                    <Activity title={"Adventure"} img={adventure} idName={"adventure"} activityClicked={this.activityClicked}/>
+                    <Activity title={"Nature"} img={nature} idName={"nature"} activityClicked={this.activityClicked}/>
+                    <Activity title={"Sightseeing"} img={sightseeing} idName={"sightseeing"} activityClicked={this.activityClicked}/>
                 </div>
             </div>
             <hr/>
@@ -237,10 +237,10 @@ class Parent extends React.Component {
                     <h2>Area</h2>
                 </div>
                 <div id="areaSelectContainer">
-                    <Area number='0' title={"Ocean"} img={ocean} idName={"oceanContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[0] = ref}/>
-                    <Area number='1' title={"Mountain"} img={mountain} idName={"mountainContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[1] = ref}/>
-                    <Area number='2' title={"Lake"} img={lake} idName={"lakeContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[2] = ref}/>
-                    <Area number='3' title={"Inland"} img={inland} idName={"inlandContainer"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[3] = ref}/>
+                    <Area number='0' title={"Ocean"} img={ocean} idName={"ocean"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[0] = ref}/>
+                    <Area number='1' title={"Mountain"} img={mountain} idName={"mountain"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[1] = ref}/>
+                    <Area number='2' title={"Lake"} img={lake} idName={"lake"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[2] = ref}/>
+                    <Area number='3' title={"Inland"} img={inland} idName={"inland"} areaClicked={this.areaClicked} ref={(ref) => this.areaRef[3] = ref}/>
                 </div>
             </div>
             <hr/>
@@ -249,10 +249,10 @@ class Parent extends React.Component {
                     <h2>Climate</h2>
                 </div>
                 <div id="climateSelectContainer">
-                    <Climate number='0' title={"Tropical"} img={tropical} idName={"tropicalContainer"} climateClicked={this.climateClicked} ref={(ref) => this.climateRef[0] = ref}/>
-                    <Climate number='1' title={"Hot"} img={hot} idName={"hotContainer"} climateClicked={this.climateClicked} ref={(ref) => this.climateRef[1] = ref}/>
-                    <Climate number='2' title={"Temperate"} img={temperate} idName={"temperateContainer"} climateClicked={this.climateClicked} ref={(ref) => this.climateRef[2] = ref}/>
-                    <Climate number='3' title={"Cold"} img={cold} idName={"coldContainer"} climateClicked={this.climateClicked} ref={(ref) => this.climateRef[3] = ref}/>
+                    <Climate number='0' title={"Tropical"} img={tropical} idName={"tropical"} climateClicked={this.climateClicked} ref={(ref) => this.climateRef[0] = ref}/>
+                    <Climate number='1' title={"Hot"} img={hot} idName={"hot"} climateClicked={this.climateClicked} ref={(ref) => this.climateRef[1] = ref}/>
+                    <Climate number='2' title={"Temperate"} img={temperate} idName={"temperate"} climateClicked={this.climateClicked} ref={(ref) => this.climateRef[2] = ref}/>
+                    <Climate number='3' title={"Cold"} img={cold} idName={"cold"} climateClicked={this.climateClicked} ref={(ref) => this.climateRef[3] = ref}/>
                 </div>
             </div>
             <div id="calculateContainer">

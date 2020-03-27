@@ -265,6 +265,7 @@ img {
 }
 
 .linkContainer{
+  margin: 0 5px;
   display: block;
 }
 
