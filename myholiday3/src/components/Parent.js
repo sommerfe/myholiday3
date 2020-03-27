@@ -13,6 +13,7 @@ import temperate from '../assets/categories/temperate2.jpg';
 import tropical from '../assets/categories/tropical2.jpg';
 import logo from '../assets/logo.jpg';
 
+import {data} from '../data'
 import Activity from './Activity';
 import Climate from './Climate';
 import TripOffer from './TripOffer'
@@ -90,40 +91,31 @@ class Parent extends React.Component {
         console.log('Activities: ' + this.activities)
         console.log('Area: ' + this.area)
         console.log('Climate: ' + this.climate)
+        let selection = this.activities.concat(this.area);
+        selection.push(this.climate);
+        console.log("selection: " + selection);
+
         let locations = [];
-        switch(this.climate){
-            case "tropical":  locations.push('Tuxtla Gutiérrez'); break;
-            case "hot": locations.push('Mallorca'); break;
-            case "temperate": locations.push('Freiburg'); break;
-            case "cold": locations.push('St. Moritz'); break;
-            default: break;
-        }
 
-        console.log("calculate: " + this.state.possibleLocations)
-
-        this.area.forEach((a) => {
-            switch(a){
-                case "ocean": locations.push('Teneriffa'); break;
-                case "mountain": locations.push('Annecy'); break;
-                case "lake": locations.push('Inverness'); break;
-                case "inland": locations.push('Munich'); break;
-                default: break;
-            }
+        data.forEach((dat) => {
+            let counter = 0;
+            selection.forEach((sel) => {
+                if(dat.category.includes(sel))counter ++; 
+            })
+            if(counter > 0) locations.push({location: dat.city, count: counter});
         })
-        console.log("calculate: " + this.state.possibleLocations)
 
-        this.activities.forEach((a) => {
-            switch(a){
-                case "relax": locations.push('Antalya'); break;
-                case "adventure": locations.push('Saint Raphael'); break;
-                case "nature": locations.push('Krka'); break;
-                case "sightseeing": locations.push('London'); break;
-                default: break;
-            }
+        locations.sort((a, b) => {
+            return b.count - a.count
+
+        })
+
+        let selectedLocations= [];
+        locations.forEach((l) => {
+            selectedLocations.push(l.location)
         })
         
-        this.setState({possibleLocations: locations});
-        console.log("calculate: " + this.state.possibleLocations)
+        this.setState({possibleLocations: selectedLocations});
     };
 
 
