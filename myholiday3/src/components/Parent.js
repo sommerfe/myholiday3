@@ -16,7 +16,6 @@ import logo from '../assets/logo.jpg';
 import {data} from '../data'
 import Activity from './Activity';
 import Climate from './Climate';
-import TripOffer from './TripOffer'
 import Area from './Area';
 import '../App.css';
 import DatePicker from "react-datepicker";
@@ -125,15 +124,6 @@ class Parent extends React.Component {
 
     toDateChanged = (newDate) => {
         this.setState({toDate: newDate})
-    }
-
-    createOffers = () => {
-        let offers = []
-
-        this.state.offerList.forEach((offer, i) => {
-           offers.push(<TripOffer id={"offer" +i} offer={offer} key={i}></TripOffer>)
-        });
-        return offers;
     }
 
     calculatedLocations = () => {
@@ -256,9 +246,6 @@ class Parent extends React.Component {
                 {navigationBar}
                 {allContainer}
                 {this.calculatedLocations()}
-                    <div className="tripOfferContainer">
-                        {this.createOffers()}
-                    </div>
                 <Impressum></Impressum>
 
                 </div>
