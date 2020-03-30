@@ -10,7 +10,7 @@ class Area extends React.Component {
     clicked = false;
 
     areaActivate = (choosenArea, deactivateArea) => {
-      console.log('choosenArea: ' + choosenArea + ' idname: ' + this.idName + ' title: ' + this.title);
+      //console.log('choosenArea: ' + choosenArea + ' idname: ' + this.idName + ' title: ' + this.title);
       var element = document.getElementById(this.idName);
       if(choosenArea == this.idName) {
           if(!this.clicked){

@@ -10,7 +10,7 @@ class Climate extends React.Component {
     clicked = false;
 
     climateActivate = (choosenClimate) => {
-        console.log('climateActivate: ' + choosenClimate + ' idname: ' + this.idName + ' title: ' + this.title);
+       // console.log('climateActivate: ' + choosenClimate + ' idname: ' + this.idName + ' title: ' + this.title);
         var element = document.getElementById(this.idName);
         if(choosenClimate == this.idName) {
             if(!this.clicked){
@@ -27,7 +27,7 @@ class Climate extends React.Component {
     }
 
     clickClimate =  (e) => {
-        console.log('clickClimate: ' + this.idName);
+       // console.log('clickClimate: ' + this.idName);
 
         this.props.climateClicked(this.idName, this.number);
       }

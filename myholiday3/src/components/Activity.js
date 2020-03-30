@@ -1,5 +1,4 @@
 import React from 'react';
-import {data} from '../data'
 
 class Activity extends React.Component {
     img = this.props.img;

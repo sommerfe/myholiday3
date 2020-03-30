@@ -59,8 +59,7 @@ class Parent extends React.Component {
         } else {
             this.activities.push(idName);
         }
-        console.log('Activities: ' + this.activities);
-        //this.setState({offerList: this.state.offerList.concat('stest')})
+        //console.log('Activities: ' + this.activities);
     };
 
     areaClicked = (idName) => {
@@ -75,21 +74,20 @@ class Parent extends React.Component {
         }
 
 
-        console.log('Area: ' + this.area);
-
+        //console.log('Area: ' + this.area);
     };
 
     climateClicked = (idName, index) => {
         this.climate = idName
         this.climateRef.map((ref) => ref.climateActivate(this.climate))
-        console.log('Climate: ' + this.climate);
+        //console.log('Climate: ' + this.climate);
     };
 
     calculate = () => {
-        console.log('Calculation:')
-        console.log('Activities: ' + this.activities)
-        console.log('Area: ' + this.area)
-        console.log('Climate: ' + this.climate)
+        //console.log('Calculation:')
+        //console.log('Activities: ' + this.activities)
+        //console.log('Area: ' + this.area)
+        //console.log('Climate: ' + this.climate)
         let selection = this.activities.concat(this.area);
         selection.push(this.climate);
         console.log("selection: " + selection);
@@ -124,15 +122,6 @@ class Parent extends React.Component {
 
     toDateChanged = (newDate) => {
         this.setState({toDate: newDate})
-    }
-
-    calculatedLocations = () => {
-        console.log('calculatedLocations')
-        if(this.state.possibleLocations && this.state.possibleLocations.length > 0){
-            let html =<div className="calculatedLocationsContainer"><SuggestedLocations locations={this.state.possibleLocations}></SuggestedLocations></div>
-            return html;
-        }
-        return null;
     }
 
     render() {
@@ -242,12 +231,16 @@ class Parent extends React.Component {
             </div>
         </div>
     </div>;
+    let html;
+    if(this.state.possibleLocations && this.state.possibleLocations.length > 0){
+        console.log('possibl: ' + this.state.possibleLocations)
+        html = <SuggestedLocations key="blubb" locations={this.state.possibleLocations} />
+    }
         return (<div id="all">
                 {navigationBar}
                 {allContainer}
-                {this.calculatedLocations()}
+                {html}
                 <Impressum></Impressum>
-
                 </div>
                 );
     }
