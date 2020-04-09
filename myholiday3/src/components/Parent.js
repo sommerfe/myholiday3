@@ -24,9 +24,17 @@ import SuggestedLocations from './SuggestedLocations';
 import Impressum from './Impressum';
 
 class Parent extends React.Component {
+    climateCategory = ['hot', 'cold', 'temperate', 'tropical'];
+    areaCategory = ['mountain', 'ocean', 'lake', 'inland'];
+    activityCategory = ['relax', 'adventure', 'nature', 'sightseeing'];
+    climateWeight = 6;
+    areaWeight = 3;
+    activityWeight = 1;
+
     activities = [];
     area = [];
     climate;
+    
     constructor(props) {
         super(props);
         this.climateRef = [];
@@ -34,24 +42,6 @@ class Parent extends React.Component {
         this.state = {fromDate: new Date(), toDate: new Date().setDate((new Date()).getDate() + 7) , offerList: [], possibleLocations: []}
 
     }
-
-    //componentDidMount() {
-    //    const element = document.getElementById("chooseContainer");
-    //    const divElement = document.createElement("div");
-    //    const script = document.createElement("script");
-    //    divElement.style = {width: '100%', display: 'flex'};
-    //    divElement.id = "c24pp-package-iframe";
-    //    script.src = "https://files.check24.net/widgets/auto/129200/c24pp-package-iframe/package-iframe.js";
-    //    script.async = true;
-    //    element.appendChild(divElement);
-    //    divElement.appendChild(script);
-    //    script.onload = () => this.scriptLoaded();
-    //    //document.body.appendChild(divElement);
-    //  }
-
-      scriptLoaded() {
-        //window.A.sort();
-      };
 
     activityClicked = (idName) => {
         if(this.activities.includes(idName)){
@@ -83,11 +73,11 @@ class Parent extends React.Component {
         //console.log('Climate: ' + this.climate);
     };
 
+
+    // activity: 1
+    // area: 3
+    // climate: 6
     calculate = () => {
-        //console.log('Calculation:')
-        //console.log('Activities: ' + this.activities)
-        //console.log('Area: ' + this.area)
-        //console.log('Climate: ' + this.climate)
         let selection = this.activities.concat(this.area);
         selection.push(this.climate);
         console.log("selection: " + selection);
@@ -97,23 +87,53 @@ class Parent extends React.Component {
         data.forEach((dat) => {
             let counter = 0;
             selection.forEach((sel) => {
-                if(dat.category.includes(sel))counter ++; 
+                if(dat.category.includes(sel)){
+                   switch(this.getCategory(sel)){
+                       case 'climate': counter = counter + this.climateWeight; break;
+                       case 'area': counter = counter + this.areaWeight; break;
+                       case 'activity': counter = counter + this.activityWeight; break;
+                       default: console.log('default case');
+                   }
+                }
             })
             if(counter > 0) locations.push({location: dat.city, count: counter});
         })
 
         locations.sort((a, b) => {
             return b.count - a.count
-
         })
+        console.log(locations)
+
+        locations = locations.slice(0, 3)
 
         let selectedLocations= [];
         locations.forEach((l) => {
             selectedLocations.push(l.location)
         })
-        
+
         this.setState({possibleLocations: selectedLocations});
     };
+
+    getCategory(selection){
+        if(this.isClimate(selection)) return 'climate'
+        if(this.isArea(selection)) return 'area'
+        if(this.isActivity(selection)) return 'activity'
+
+    }
+
+    isClimate(selection){
+        return this.climateCategory.includes(selection);
+    }
+
+    isArea(selection){
+        return this.areaCategory.includes(selection);
+
+    }
+
+    isActivity(selection){
+        return this.activityCategory.includes(selection);
+
+    }
 
 
     fromDateChanged = (newDate) => {
@@ -233,7 +253,6 @@ class Parent extends React.Component {
     </div>;
     let html;
     if(this.state.possibleLocations && this.state.possibleLocations.length > 0){
-        console.log('possibl: ' + this.state.possibleLocations)
         html = <SuggestedLocations key="blubb" locations={this.state.possibleLocations} />
     }
         return (<div id="all">

@@ -249,7 +249,7 @@ img {
 }
 
 /* Style the links inside the navigation bar */
-.bottomBar a {
+.bottomBar > a {
   color: #ececec;
   text-align: center;
   margin: 14px 16px;
@@ -258,7 +258,7 @@ img {
 }
 
 /* Change the color of links on hover */
-.bottomBar a:hover {
+.bottomBar > a:hover {
   background-color: #ececec;
   color: #007be3
   ;
@@ -291,4 +291,8 @@ img {
 #logo img {
   height: 15%;
   width: 15%;
+}
+
+.calculatedLocations a, .calculatedLocations p{
+  color: #f39c12;
 }

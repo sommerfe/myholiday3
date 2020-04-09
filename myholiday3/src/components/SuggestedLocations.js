@@ -15,7 +15,7 @@ class SuggestedLocations extends React.Component {
         locations.forEach((l) => {
             array.push(da.find((d) => d.city === l))
         })
-        array = array.slice(0, 3)
+        
         return array;
     }
 
