@@ -11,7 +11,7 @@ import ocean from '../assets/categories/ocean2.jpg';
 import sightseeing from '../assets/categories/sightseeing2.jpg';
 import temperate from '../assets/categories/temperate2.jpg';
 import tropical from '../assets/categories/tropical2.jpg';
-import logo from '../assets/logo_1.png';
+import logo from '../assets/logo_1_300dpi_font.png';
 
 import {data} from '../data'
 import Activity from './Activity';
