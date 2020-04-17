@@ -140,6 +140,7 @@ img {
   text-align: center;
   border: 3px solid transparent;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .selectable:hover {
@@ -277,6 +278,7 @@ img {
   display: flex;
   flex-direction: column;
   margin: 20px;
+  transition: all 0.3s;
 }
 
 .calculatedLocations a{
@@ -284,6 +286,9 @@ img {
   color: black;
 }
 
+.option:hover {
+  transform: scale(1.05);
+}
 .option h3{
   margin-top: 5px;
 }

@@ -39,7 +39,7 @@ class Parent extends React.Component {
         super(props);
         this.climateRef = [];
         this.areaRef = [];
-        this.state = {fromDate: new Date(), toDate: new Date().setDate((new Date()).getDate() + 7) , offerList: [], possibleLocations: []}
+        this.state = {fromDate: new Date(), toDate: new Date().setDate((new Date()).getDate() + 7) , offerList: [], possibleLocations: [], guests:2}
 
     }
 
@@ -135,6 +135,9 @@ class Parent extends React.Component {
 
     }
 
+    guestsChanged = (newGuests) => {
+        this.setState({guests: newGuests.target.value})
+    }
 
     fromDateChanged = (newDate) => {
         this.setState({fromDate: newDate})    
@@ -180,7 +183,7 @@ class Parent extends React.Component {
             </div>
             <div id="guestsContainer" className="dataEntry">
                 <h4>Guests</h4>
-                <input type="number" min="1" max="12" id="guestsInput" placeholder="2"/>
+                <input type="number" min="1" max="12" id="guestsInput" placeholder="2" onChange={this.guestsChanged}/>
             </div>
            {/* <div id="costContainer" className="dataEntry">
                 <h4>Maximal Cost</h4>
@@ -253,7 +256,7 @@ class Parent extends React.Component {
     </div>;
     let html;
     if(this.state.possibleLocations && this.state.possibleLocations.length > 0){
-        html = <SuggestedLocations key="blubb" locations={this.state.possibleLocations} />
+        html = <SuggestedLocations key="blubb" locations={this.state.possibleLocations} guests={this.state.guests} fromDate={this.state.fromDate} toDate={this.state.toDate} />
     }
         return (<div id="all">
                 {navigationBar}
